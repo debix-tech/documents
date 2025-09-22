@@ -37,3 +37,6 @@
 [submodule "Products/N-Series/Box_PC/BPC-iMX8MP-08"]
 	path = Products/N-Series/Box_PC/BPC-iMX8MP-08
 	url = https://github.com/debix-tech/bpc-imx8mp-08.git
+[submodule "Products/N-Series/SOM/DEBIX-SOM-D"]
+	path = Products/N-Series/SOM/DEBIX-SOM-D
+	url = https://github.com/debix-tech/debix-som-d.git
