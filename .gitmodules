@@ -22,3 +22,21 @@
 [submodule "Products/N-Series/SOM/DEBIX-SOM-C"]
 	path = Products/N-Series/SOM/DEBIX-SOM-C
 	url = https://github.com/debix-tech/debix-som-c.git
+[submodule "Products/N-Series/Box_PC/BPC-iMX93-01"]
+	path = Products/N-Series/Box_PC/BPC-iMX93-01
+	url = https://github.com/debix-tech/bpc-imx93-01.git
+[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-01"]
+	path = Products/N-Series/Box_PC/BPC-iMX8MP-01
+	url = https://github.com/debix-tech/bpc-imx8mp-01.git
+[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-03"]
+	path = Products/N-Series/Box_PC/BPC-iMX8MP-03
+	url = https://github.com/debix-tech/bpc-imx8mp-03.git
+[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-05"]
+	path = Products/N-Series/Box_PC/BPC-iMX8MP-05
+	url = https://github.com/debix-tech/bpc-imx8mp-05.git
+[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-08"]
+	path = Products/N-Series/Box_PC/BPC-iMX8MP-08
+	url = https://github.com/debix-tech/bpc-imx8mp-08.git
+[submodule "Products/N-Series/SOM/DEBIX-SOM-D"]
+	path = Products/N-Series/SOM/DEBIX-SOM-D
+	url = https://github.com/debix-tech/debix-som-d.git
