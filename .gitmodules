@@ -1,6 +1,6 @@
 [submodule "Products/N-Series/SBC/DEBIX_Model_A"]
 	path = Products/N-Series/SBC/DEBIX_Model_A
-	url = https://github.com/debix-tech/DEBIX_Model_A.git
+	url = https://github.com/debix-tech/debix-model-a.git
 [submodule "Products/N-Series/SBC/DEBIX_Model_B"]
 	path = Products/N-Series/SBC/DEBIX_Model_B
 	url = https://github.com/debix-tech/debix-model-b.git
@@ -40,3 +40,12 @@
 [submodule "Products/N-Series/SOM/DEBIX-SOM-D"]
 	path = Products/N-Series/SOM/DEBIX-SOM-D
 	url = https://github.com/debix-tech/debix-som-d.git
+[submodule "Products/N-Series/Panel/11.6-iMX8MP-Modular-Panel"]
+	path = Products/N-Series/Panel/11.6-iMX8MP-Modular-Panel
+	url = https://github.com/debix-tech/11.6-imx8mp-modular-panel.git
+[submodule "Products/N-Series/Panel/10.1-iMX8MP-Modular-Panel"]
+	path = Products/N-Series/Panel/10.1-iMX8MP-Modular-Panel
+	url = https://github.com/debix-tech/10.1-imx8mp-modular-panel.git
+[submodule "Products/N-Series/Panel/15.6-iMX8MP-Modular-Panel"]
+	path = Products/N-Series/Panel/15.6-iMX8MP-Modular-Panel
+	url = https://github.com/debix-tech/15.6-imx8mp-modular-panel.git
