@@ -22,20 +22,20 @@
 [submodule "Products/N-Series/SOM/DEBIX-SOM-C"]
 	path = Products/N-Series/SOM/DEBIX-SOM-C
 	url = https://github.com/debix-tech/debix-som-c.git
-[submodule "Products/N-Series/Box_PC/BPC-iMX93-01"]
-	path = Products/N-Series/Box_PC/BPC-iMX93-01
+[submodule "Products/N-Series/BoxPC/BPC-iMX93-01"]
+	path = Products/N-Series/BoxPC/BPC-iMX93-01
 	url = https://github.com/debix-tech/bpc-imx93-01.git
-[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-01"]
-	path = Products/N-Series/Box_PC/BPC-iMX8MP-01
+[submodule "Products/N-Series/BoxPC/BPC-iMX8MP-01"]
+	path = Products/N-Series/BoxPC/BPC-iMX8MP-01
 	url = https://github.com/debix-tech/bpc-imx8mp-01.git
-[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-03"]
-	path = Products/N-Series/Box_PC/BPC-iMX8MP-03
+[submodule "Products/N-Series/BoxPC/BPC-iMX8MP-03"]
+	path = Products/N-Series/BoxPC/BPC-iMX8MP-03
 	url = https://github.com/debix-tech/bpc-imx8mp-03.git
-[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-05"]
-	path = Products/N-Series/Box_PC/BPC-iMX8MP-05
+[submodule "Products/N-Series/BoxPC/BPC-iMX8MP-05"]
+	path = Products/N-Series/BoxPC/BPC-iMX8MP-05
 	url = https://github.com/debix-tech/bpc-imx8mp-05.git
-[submodule "Products/N-Series/Box_PC/BPC-iMX8MP-08"]
-	path = Products/N-Series/Box_PC/BPC-iMX8MP-08
+[submodule "Products/N-Series/BoxPC/BPC-iMX8MP-08"]
+	path = Products/N-Series/BoxPC/BPC-iMX8MP-08
 	url = https://github.com/debix-tech/bpc-imx8mp-08.git
 [submodule "Products/N-Series/SOM/DEBIX-SOM-D"]
 	path = Products/N-Series/SOM/DEBIX-SOM-D
@@ -49,3 +49,102 @@
 [submodule "Products/N-Series/Panel/15.6-iMX8MP-Modular-Panel"]
 	path = Products/N-Series/Panel/15.6-iMX8MP-Modular-Panel
 	url = https://github.com/debix-tech/15.6-imx8mp-modular-panel.git
+[submodule "Products/Accessories/Camera_Modules/Camera_200A"]
+	path = Products/Accessories/Camera_Modules/Camera_200A
+	url = https://github.com/debix-tech/camera-200a.git
+[submodule "Products/Accessories/Camera_Modules/Camera_500A"]
+	path = Products/Accessories/Camera_Modules/Camera_500A
+	url = https://github.com/debix-tech/camera-500a.git
+[submodule "Products/Accessories/Camera_Modules/Camera_1300A"]
+	path = Products/Accessories/Camera_Modules/Camera_1300A
+	url = https://github.com/debix-tech/camera-1300a.git
+[submodule "Products/Accessories/DEBIX_Add_on_Board/Camera_Adapter_Board"]
+	path = Products/Accessories/DEBIX_Add_on_Board/Camera_Adapter_Board
+	url = https://github.com/debix-tech/camera-adapter-board.git
+[submodule "Products/Accessories/DEBIX_Add_on_Board/DEBIX_4G_Board"]
+	path = Products/Accessories/DEBIX_Add_on_Board/DEBIX_4G_Board
+	url = https://github.com/debix-tech/debix-4G-board.git
+[submodule "Products/Accessories/DEBIX_Add_on_Board/DEBIX_IO_Board"]
+	path = Products/Accessories/DEBIX_Add_on_Board/DEBIX_IO_Board
+	url = https://github.com/debix-tech/debix-IO-board.git
+[submodule "Products/Accessories/DEBIX_Add_on_Board/DEBIX_LoRa_Board"]
+	path = Products/Accessories/DEBIX_Add_on_Board/DEBIX_LoRa_Board
+	url = https://github.com/debix-tech/debix-LoRa-board.git
+[submodule "Products/Accessories/DEBIX_Add_on_Board/MIPI_DSI_Adapter_Board"]
+	path = Products/Accessories/DEBIX_Add_on_Board/MIPI_DSI_Adapter_Board
+	url = https://github.com/debix-tech/MIPI-DSI-adapter-board.git
+[submodule "Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Infinity"]
+	path = Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Infinity
+	url = https://github.com/debix-tech/emc-7090b-infinity.git
+[submodule "Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Model_A&B"]
+	path = Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Model_A&B
+	url = https://github.com/debix-tech/emc-7090b-model-a-b.git
+[submodule "Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Model_C"]
+	path = Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/N_Series/EMC_7090B_Model_C
+	url = https://github.com/debix-tech/emc-7090b-model-c.git
+[submodule "Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/R_Series/EMC_7090B_R3576_01"]
+	path = Products/Accessories/DEBIX_Fanless_Aluminum_Enclosure/R_Series/EMC_7090B_R3576_01
+	url = https://github.com/debix-tech/emc-7090b-R3576-01.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD050A"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD050A
+	url = https://github.com/debix-tech/debix-td050a.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD050H"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD050H
+	url = https://github.com/debix-tech/debix-td050h.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD070A"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD070A
+	url = https://github.com/debix-tech/debix-td070a.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD070H"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD070H
+	url = https://github.com/debix-tech/debix-td070h.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD101A"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD101A
+	url = https://github.com/debix-tech/debix-td101a.git
+[submodule "Products/Accessories/Display_Screen/DEBIX_TD101H"]
+	path = Products/Accessories/Display_Screen/DEBIX_TD101H
+	url = https://github.com/debix-tech/debix-td101h.git
+[submodule "Products/Accessories/PoE_Module"]
+	path = Products/Accessories/PoE_Module
+	url = https://github.com/debix-tech/poe-module.git
+[submodule "Products/Accessories/Polyhex_24PIN-Pai_15PIN_FPC"]
+	path = Products/Accessories/Polyhex_24PIN-Pai_15PIN_FPC
+	url = https://github.com/debix-tech/polyhex_24pin-pai_15pin_fpc.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_100"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_100
+	url = https://github.com/debix-tech/bpc-ea-100.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_200"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_200
+	url = https://github.com/debix-tech/bpc-ea-200.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_310"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_310
+	url = https://github.com/debix-tech/bpc-ea-310.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_400"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_400
+	url = https://github.com/debix-tech/bpc-ea-400.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_500"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_500
+	url = https://github.com/debix-tech/bpc-ea-500.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_500E"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_500E
+	url = https://github.com/debix-tech/bpc-ea-500e.git
+[submodule "Products/NVIDIA-Jetson-Series/BPC_EA_600"]
+	path = Products/NVIDIA-Jetson-Series/BPC_EA_600
+	url = https://github.com/debix-tech/bpc-ea-600.git
+[submodule "Products/R-Series/BoxPC/BPC_RK3576_01"]
+	path = Products/R-Series/BoxPC/BPC_RK3576_01
+	url = https://github.com/debix-tech/bpc-R3576-01.git
+[submodule "Products/R-Series/BoxPC/Portal_A"]
+	path = Products/R-Series/BoxPC/Portal_A
+	url = https://github.com/debix-tech/portal-a.git
+[submodule "Products/R-Series/SBC/DEBIX_R3566_01"]
+	path = Products/R-Series/SBC/DEBIX_R3566_01
+	url = https://github.com/debix-tech/debix-R3566-01.git
+[submodule "Products/R-Series/SBC/DEBIX_R3568_01"]
+	path = Products/R-Series/SBC/DEBIX_R3568_01
+	url = https://github.com/debix-tech/debix-R3568-01.git
+[submodule "Products/R-Series/SBC/DEBIX_R3576_01"]
+	path = Products/R-Series/SBC/DEBIX_R3576_01
+	url = https://github.com/debix-tech/debix-R3576-01.git
+[submodule "Products/R-Series/SBC/EMB_RK3566_02"]
+	path = Products/R-Series/SBC/EMB_RK3566_02
+	url = https://github.com/debix-tech/emb-rk3566-02.git
