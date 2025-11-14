@@ -91,6 +91,37 @@ Yes
 **29. How to use DEBIX Model A for 5V CAN communication?**  
 It needs to be used in conjunction with a CAN transceiver peripheral for CAN communication, such as DEBIX I/O Board, or other CAN transceiver modules.
 
+**30. Can DEBIX control a cooling fan programmatically, similar to the Raspberry Pi?**  
+Yes, it can. The GPIO pins on DEBIX can output a 3.3V control signal. You can connect the fan's control wire to a compatible GPIO pin and use the provided `debix-gpio` to set the pin's output level, thereby turning the fan on or off.
+
+**31. Besides the Power USB Type-C port, are there alternative ways to power the DEBIX Model A?**  
+Yes, the board can also be powered through the 5V pins (Pin 6 and Pin 8) on the GPIO header.
+
+**32. Is there any recorded data on the CPU temperature of DEBIX Model A running Ubuntu/Win10 when idle on the desktop, both with and without a heatsink?**  
+- Model A 4GB DDR | Ubuntu 20.04 (idle on desktop):
+  - Without heatsink: 47°C
+  - With heatsink: 42°C  
+>*Measurement method: CPU internal temperature read via command `cat /sys/class/thermal/thermal_zone0/temp`*  
+
+- Model A 8GB DDR | Windows 10 IoT (idle on desktop):
+  - Without heatsink: 53°C (measured via external probe on CPU surface)
+  - With heatsink: 47°C (measured via external probe on CPU surface)  
+>*Note: As Windows 10 does not support direct CPU temperature reading via command, measurements were taken using a temperature probe contacting the CPU surface. The actual internal CPU temperature is estimated to be approximately 20°C higher than the surface reading, with noticeable heat to the touch.*
+
+**33. Is resistor modification required to use an IPEX connector for BT & WiFi on the DEBIX Infinity?**  
+No, resistor modification is not required on the Infinity board.
+
+*Note: This is different from the DEBIX Model A/B, where using the IPEX connector does require resistor rework. For details, please refer to the documentation in our official blog, linked here: https://debix.io/blog/wifi-external-antenna-connections-sop-on-debix-model-a/*
+
+**34. How many USB3 controllers are available for the four USB3 ports of the DEBIX Model A/B?**  
+One controller.
+
+
+
+
+
+
+
 <div align="right">  
 
 [▲ Return to the Top](#debix-faq---hardware-questions)

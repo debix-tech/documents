@@ -99,8 +99,8 @@ Modify the attribute value of `XKBLAYOUT` in `/etc/default/keyboard`, the curren
 
 **23. How to configure DEBIX’s WiFi and SSH without display device and keyboard?**  
 Read the SD card which has finished flashing with a computer. Create a new `wpa_supplicant.conf` file in the `boot` partition (DEBIX's `/boot` directory), fill in the content according to the following reference format and save the `wpa_supplicant.conf` file.  
-/|/
----|---
+|   |   |
+|---|---|
 1|country=CN
 2|ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 3|update_config=1
@@ -130,8 +130,8 @@ Instructions and configuration examples of WiFi with different security:
 <br>
 
 If your WiFi has no password:  
-/|/
----|---
+|   |   |
+|---|---|
 1|network={
 2|ssid="name of your wireless network（ssid）"
 3|key_mgmt=NONE
@@ -140,8 +140,8 @@ If your WiFi has no password:
 <br>
 
 If your WiFi uses WEP encryption:
-/|/
----|---
+|   |   |
+|---|---|
 1|network={
 2|ssid="name of your wireless network（ssid）"
 3|key_mgmt=NONE
@@ -151,8 +151,8 @@ If your WiFi uses WEP encryption:
 <br>
  
 If your WiFi uses WPA/WPA2 encryption:
-/|/
----|---
+|   |   |
+|---|---|
 1|network={
 2|ssid="name of your wireless network（ssid）"
 3|key_mgmt=WPA-PSK
@@ -331,6 +331,99 @@ Wayland.
 **64. From which version of DEBIX Ubuntu is fully DDR compatible?**  
 DEBIX Ubuntu22.04 (L6.1.22, v3.5).
 
+**65. When testing PTP time synchronization with EQOS on DEBIX Model A, I can see event outputs in Pinmux, but cannot find documentation about their connections to specific pin headers or test points. Is there any information on this?**   
+You can find more information on the official DEBIX blog, linked here: https://debix.io/blog/tsn-synchronization-time/.
+
+**66. Can you confirm there is no issue to use Python and pyGTK on Debix OS?**  
+Please refer to this official DEBIX blog: https://debix.io/blog/use-of-pygtk-on-debix/
+
+**67. On the Debix Ubuntu 2G version, the rfkill utility is blocking Bluetooth. What can be done to resolve this?**  
+You can try stopping the NetworkManager service, as it can sometimes conflict with Bluetooth. Use the command: `sudo systemctl stop NetworkManager`. If this resolves the issue and you wish to make the change permanent, you can disable the service from starting on boot with: `sudo systemctl disable NetworkManager`.
+
+**68. Is there any eample on how to configure the IOMUXes of the i.MX8MP processor? I'm trying to use pin20 of J2 as a GPIO5_IO6 which is its ALT5 function, but it is not working.**  
+Pin 20 is designated for SPI function. To use it as a GPIO, you must first disable the SPI functionality by setting the "status" property to "disabled" in the device tree configuration, as shown in the reference diagram. After this change, the pin can be reconfigured as GPIO5_IO6. 
+<p align="left">
+<img  width=auto height=auto src="file/Disable_SPI.png" alt="Disable_SPI">
+</p>
+
+For detailed instructions, please refer to the official blog:
+https://debix.io/blog/debix-model-a-gpio-instruction-manual/
+
+**69. After downloading the Ubuntu image file following the installation guide on YouTube, the video showed a "Copy File Hash" option, but this option is not available in the image file I downloaded.**   
+The hash value is used to verify the integrity of the downloaded image file. You can install a hash value viewing tool *(e.g., Hash Tab_v6.0.0.34_Setup.exe)* on your Windows system to view the value.
+
+**70. How to enter the UBoot mode on SOM A IO?**  
+Connect the debug cable, and during startup, quickly and continuously press the "Enter key" to enter Uboot.
+
+**71. On DEBIX Model A running Ubuntu 22.04, I set a static IP using the NetworkManager (nmtui) tool. However, after rebooting DEBIX, another IP address appears alongside my configured static IP, both on the same Ethernet device (ens33). This new IP remains the same every time it appears. How can I remove this additional IP and retain only my configured static IP?**   
+Temporarily disable NetworkManager during system startup and re-enable it after boot completes.  
+Method to disable the service:  
+`systemctl stop NetworkManager`  
+`systemctl disable NetworkManager`  
+Method to enable the service:  
+`systemctl start NetworkManager`
+
+**72. How can I get clone of eMMC and flash to another?**  
+Please refer to the steps below:
+```
+Clone eMMC and make a Micro SD card to flash the eMMC system installation package:
+
+Environment preparation: 1 x SD card reader, computer or virtual machine with Linux system, 2 x Micro SD card of at least 16GB size;
+
+(Note: Please make sure you fully understand all the contents of this document before proceeding, proceeding blindly may result in data loss.)
+
+1. Enter DEBIX official website (https://debix.io/download-system-image/), download the system image (Boot from SD Card).
+2. Then you can use the tool called Etcher to write the system image to the Micro SD card. For the detailed flash method, please refer to the burning tutorial in the corresponding motherboard user manual.
+3. Insert the Micro SD card into the motherboard, and power on, the system will boot from the Micro SD card.
+4. Enter the system desktop, and switch to the administrator user via `sudo su` command.
+5. Create a folder to mount the eMMC file system and boot partition.
+mkdir -p /mnt/fat32
+mkdir -p /mnt/ext4
+6. Mount the partition of eMMC.
+mount /dev/mmcblk2p1 /mnt/fat32/
+mount /dev/mmcblk2p2 /mnt/ext4/
+7. Enter the ext4 directory and pack the file system.
+cd /mnt/ext4
+tar -cjpf ../imx-image-desktop-imx8mpevk.tar.bz2 ./*
+8. Enter the fat32 directory and pack the boot partition.
+cd /mnt/fat32
+tar -cpf ../boot.tar ./*
+9. Now the Micro SD card contains the file system and boot backed up from eMMC.
+10. Transfer over the network or insert the Micro SD card into a computer with a Linux environment to copy the backup files to the computer.
+
+(Note: If no Linux environment, you can operate the Micro SD card by booting the motherboard from eMMC.)
+
+11. Prepare another Micro SD card, write the downloaded system image (Boot from eMMC) to the Micro SD card.
+12. After booting, insert the Micro SD card into PC with Linux or the motherboard with eMMC and mount the Micro SD card.
+mount /dev/sda2 /mnt/ext4 
+
+(Note: Pay attention to change the SD card's disk character display in Linux system.)
+
+13. Unzip the backup boot partition.
+mkdir boot 
+tar -xpf boot.tar -C boot/
+
+(Note: When copying, there may be an error indicating insufficient space. Please expand the ext4 partition on the Micro SD card appropriately in advance.)
+
+14. Copy the file system, the extracted device tree and kernel files to the corresponding directory in the Micro SD card.
+cp -ar boot /mnt/ext4/upgrade/
+cp imx-image-desktop-imx8mpevk.tar.bz2 /mnt/ext4/upgrade/
+15. Generate md5 value of the file system.
+cd /mnt/ext4/upgrade
+md5sum imx-image-desktop-imx8mpevk.tar.bz2 > rootfs.md5
+16. Pull out the Micro SD card and insert it to the motherboard, it will burn the new system into eMMC.
+
+```
+
+**73. When using DEBIX SOM A with a GSM module, I connect to ttyUSB1 via minicom but see no GPS data. What might be the issue?**  
+The GSM module may not have its GPS function enabled. For example, with a Quectel GSM module, you can enable GPS by sending the command AT+QGPS=1 to ttyUSB2.
+
+**74. Does DEBIX support suspend/resume on Android or Ubuntu?**  
+Yes, DEBIX supports suspend/resume on Android or Ubuntu by default, and you can set the delay time with "Automatic Suspend" in the Power function of DEBIX desktop Setting app.
+
+
+
+<br>
 <div align="right">  
 
 [▲ Return to the Top](#debix-faq---software-questions)
