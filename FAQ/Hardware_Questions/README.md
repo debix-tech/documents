@@ -116,6 +116,60 @@ No, resistor modification is not required on the Infinity board.
 **34. How many USB3 controllers are available for the four USB3 ports of the DEBIX Model A/B?**  
 One controller.
 
+**35. LVDS power supply voltage selection for DEBIX Model A.**   
+The LVDS on DEBIX Model A defaults to 5V power supply, with no 12V option. For 3.3V, customers need to manually select the jumper resistor.     
+(The DEBIX Model A/B/C series are powered by Type-C 5V and do not have a 12V option.) 
+<p align="left">
+<img  width=100% height=auto src="file/Q35.png" alt="Q35">
+</p>
+
+**36. Can pin6 (VDD_5V) of the DEBIX Model A GPIO interface be used to power the DEBIX single-board computer? Is it only for power supply?**  
+The 5V Pin6 can be used to power both the DEBIX Model A/B and the peripheral devices of DEBIX Model A/B.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

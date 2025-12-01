@@ -343,7 +343,7 @@ You can try stopping the NetworkManager service, as it can sometimes conflict wi
 **68. Is there any eample on how to configure the IOMUXes of the i.MX8MP processor? I'm trying to use pin20 of J2 as a GPIO5_IO6 which is its ALT5 function, but it is not working.**  
 Pin 20 is designated for SPI function. To use it as a GPIO, you must first disable the SPI functionality by setting the "status" property to "disabled" in the device tree configuration, as shown in the reference diagram. After this change, the pin can be reconfigured as GPIO5_IO6. 
 <p align="left">
-<img  width=auto height=auto src="file/Disable_SPI.png" alt="Disable_SPI">
+<img  width=100% height=auto src="file/Q68.png" alt="Q68">
 </p>
 
 For detailed instructions, please refer to the official blog:
@@ -420,6 +420,102 @@ The GSM module may not have its GPS function enabled. For example, with a Quecte
 
 **74. Does DEBIX support suspend/resume on Android or Ubuntu?**  
 Yes, DEBIX supports suspend/resume on Android or Ubuntu by default, and you can set the delay time with "Automatic Suspend" in the Power function of DEBIX desktop Setting app.
+
+**75. Can the DEBIX Infinity with 4GB RAM use the Windows 10 IOT image?**  
+The DEBIX Infinity with 4GB RAM supports the Windows 10 IOT image. However, we recommend the 8GB RAM configuration because the 4GB Infinity may experience slight lag when running the Windows system. For the DEBIX Model A/B, an 8GB RAM configuration is currently required.  
+Additionally, for the Windows 10 IOT image for Infinity, it needs to be provided separately by Polyhex (please contact our staff to assist you). The Windows image available on the official website is only for use with Model A/B.
+
+**76. What are the u-boot and kernel’s branches and versions for Debix Model A SBC using Yocto LF5.10.72-2.2.x and Yocto LF5.15.71-2.2.x?**   
+For Debix Model A Yocto LF5.10.72-2.2.x, the u-boot branch is lf_v2021.04 and the kernel branch is debix.   
+For Yocto LF5.15.71-2.2.x, the u-boot branch is lf_v2022.04 and the kernel branch is Model_AB-L5.15.71.
+
+**77. I'm using the DEBIX Model B, but I can't find a device tree file specifically for Model B.**  
+DEBIX Model A and DEBIX Model B use the same configuration. Please use `imx8mp-evk.dts`.
+
+**78. Is I2C3 actually I2C4?**   
+Yes. The hardware labels I2C1, I2C2, I2C3, I2C4, I2C5, and I2C6, but in software each index needs to be reduced by 1.
+So they correspond to I2C0, I2C1, I2C2, I2C3, I2C4, and I2C5. The same applies to UART: the hardware numbering starts from 1, while the software numbering starts from 0. Please refer to the diagram below.
+<p align="left">
+<img  width=auto height=auto src="file/Q78.png" alt="Q78">
+</p>
+
+**79. How can I reduce the boot time of DEBIX?**   
+You can try disabling unnecessary startup applications and services, and also turn off certain system services such as Windows Update and Windows Search. In our tests, the boot time to the desktop can be reduced to around 50 seconds.
+<p align="left">
+<img  width=auto height=auto src="file/Q79_1.png" alt="Q79_1">
+<img width=auto height=auto src="file/Q79_2.png" alt="Q79_2">
+</p>
+
+**80. Can I flash the eMMC image to the SOM module using a Linux system?**     
+Yes. You can use the UUU tool under Linux to flash the image to the eMMC, as shown in the figure below (this method is only for flashing Linux systems).
+If you need to flash a Windows system, please strictly follow the operation guide or instruction video.
+The Linux version of the UUU tool can be downloaded from: 
+https://github.com/nxp-imx/mfgtools
+<p align=left>
+<img width=auto height=auto src="file/Q80_1.png" alt="Q80_1">
+<img width=auto height=auto src="file/Q80_2.png" alt="Q80_2">
+</p>
+
+**81. Using NPU Delegate on DEBIX Model A/B.**   
+Our official DEBIX system comes pre-integrated with the `libvx_delegate` library.
+Although we were able to compile the VeriSilicon `tflite-vx-delegate` on our platform (kernel lf6.1.22), it resulted in runtime errors. Switching to the NXP-provided `tflite-vx-delegate-imx` resolved these issues.  
+
+References:
+- VeriSilicon delegate: https://github.com/VeriSilicon/tflite-vx-delegate
+- NXP delegate: https://github.com/nxp-imx/tflite-vx-delegate-imx
+<p align=left>
+<img width=auto height=auto src="file/Q81.png" alt="Q81">
+</p>
+
+**82. How can I compile the kernel on the Debix Model B and get a MediaTek MT7610U WiFi adapter working?**  
+Follow the steps below. The key is enabling the driver for your specific chipset and installing the necessary firmware.  
+1. Install the required compilation tools:
+```
+sudo apt install git bc bison flex libssl-dev make libc6-dev libncurses5-de
+```
+2. Get the kernel source code and navigate to its directory:
+```
+git clone -b lf_6.1.22-debix_model_a\&b\&infinity --single-branch https://github.com/debix-tech/linux-nxp-debix.git
+cd linux-nxp-debix
+```
+3. Configure the kernel with the MT76x0U driver:
+```
+echo "CONFIG_MT76x0U=y" >> arch/arm64/configs/imx_v8_defconfig
+```
+4. Compile and install the kernel:
+```
+make imx_v8_defconfig
+make -j4
+sudo make INSTALL_MOD_STRIP=1 modules_install
+sudo cp arch/arm64/boot/Image /boot/Image
+```
+5. Install the required firmware:   
+
+The MT7610U chip requires a specific firmware file. Install it using:
+```
+sudo apt install linux-firmware
+```
+This will place the necessary mt7610u.bin file in `/usr/lib/firmware/mediatek/`.  
+
+6. Reboot and verify:
+- Reboot your device with `sudo reboot`.
+- After rebooting, use commands like iw dev or ifconfig to check for the presence of your wireless interface (e.g., wlan0), confirming that the driver and firmware are loaded correctly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
