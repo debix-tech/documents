@@ -501,12 +501,32 @@ This will place the necessary mt7610u.bin file in `/usr/lib/firmware/mediatek
 - Reboot your device with `sudo reboot`.
 - After rebooting, use commands like iw dev or ifconfig to check for the presence of your wireless interface (e.g., wlan0), confirming that the driver and firmware are loaded correctly.
 
+**83. The DEBIX SOM A IO board is equipped with a Wi-Fi module, but the Windows 10 system does not recognize the adapter?**     
+Win10 IOT currently does not support the onboard k019 module.
 
+**84. How can I use the 4 PDM codecs available on the DEBIX Model B using Ubuntu 22.04?**   
+You can download the kernel source code for Ubuntu 22.04 and configure the dts. All of our kernel source code is available on our [GitHub](https://github.com/debix-tech).    
+The .dtb file, which contains the hardware configuration of the device, is read at startup.
 
+**85. SD card images for DEBIX SOM B and DEBIX SOM C?**  
+They are currently not yet available on the official website. Please copy the following links to your browser to download:   
+- SOM B image link: https://we.tl/t-UI2DTSI0me   
+- SOM C image link: https://we.tl/t-9CgKpOZsk0 
 
+**86. How to use python for UART communication on the DEBIX Model A?**  
+Please refer to this article: [Using python-periphery](./file/Q86_Using_python_periphery_library_on_DEBIX.pdf).
 
+**87. Error when installing Chromium-browser via sudo apt install chromium-browser -y on DEBIX Ubuntu 20.04.**   
+Chromium-browser is pre-installed by default on DEBIX and does not require reinstallation.
 
+**88. How to install Google Maps on DEBIX Model B running Android?**  
+The DEBIX system does not support installing Google Maps directly, as it requires Google certification.
 
+**89. I just received mt DEBIX Model C boards. Which hardware port do I use for serial console?**  
+UART is Pin9 and Pin11 of the 40Pin interface.
+<p align=left>
+<img width=auto height=auto src="file/Q89.png" alt="Q89">
+</p>
 
 
 

@@ -126,18 +126,27 @@ The LVDS on DEBIX Model A defaults to 5V power supply, with no 12V option. For 3
 **36. Can pin6 (VDD_5V) of the DEBIX Model A GPIO interface be used to power the DEBIX single-board computer? Is it only for power supply?**  
 The 5V Pin6 can be used to power both the DEBIX Model A/B and the peripheral devices of DEBIX Model A/B.
 
+**37. Are the add-on board stackable?**  
+Some are stackable on the DEBIX Model A. Such as [DEBIX 4G Board](https://debix.io/product/debix-4g-board/) and [DEBIX SBC PoE Module](https://debix.io/product/debix-sbc-poe-module/).
 
+**38. Is there any way to connect to both of the two MIPI CSI-2 ports on the NXP i.MX8MPlus on the DEBIX Model A SBC?**  
+DEBIX Model A SBC only has one MIPI CSI interface. The second one interface was not routed to the PCB due to space limitations. If you require two MIPI CSI ports, we recommend using [DEBIX SOM A](https://debix.io/product/debix-som-a/) together with [DEBIX SOM A IO Board](https://debix.io/product/debix-som-a-i-o-board/).
 
+**39. Is there any maximum SD card size for the DEBIX Model A.**   
+Technically it supports up to 2TB. DEBIX has tested up to 256GB. For capacity above 256GB, you may need to varify compatibility on your side. 
 
+**40. Are there any cooling options available on the DEBIX Infinity?**   
+Yes, you can use an aluminum CPU heatsink or the DEBIX enclosure for cooling. Both methods are mentioned in Section 4.15 “Heat Dissipation” of [the DEBIX Infinity User Manual](https://github.com/debix-tech/debix-infinity/tree/master/Reference_Manuals) *(Or refer to the following images)*. In addition, the DEBIX Infinity enclosure is also available from RS.
+<p align="center">
+<img width=46.3% height=auto src="file/Q40_1.png" alt="Q40_1"> 
+<img width=50% height=auto src="file/Q40_2.png" alt="Q40_2">
+</p>
 
+**41. What part number of the Model A/B SoC is used exactly?**    
+CPU part number: MIMX8ML8CVNKZAB
 
-
-
-
-
-
-
-
+**42. What is the voltage range for the USB Type-C input? Can it handle voltages above 5V, such as 9V or 12V? The schematic appears to have some type of regulator, taking TYPEC5V_IN and generating USB30_5V. What type of regulator is U34?**  
+The USB Type-C connector is designed for 5V input only and must not be used with 9V or 12V adapters. U34 is a current-limiting switch (load switch).
 
 
 
