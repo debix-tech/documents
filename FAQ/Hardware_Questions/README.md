@@ -148,6 +148,28 @@ CPU part number: MIMX8ML8CVNKZAB
 **42. What is the voltage range for the USB Type-C input? Can it handle voltages above 5V, such as 9V or 12V? The schematic appears to have some type of regulator, taking TYPEC5V_IN and generating USB30_5V. What type of regulator is U34?**  
 The USB Type-C connector is designed for 5V input only and must not be used with 9V or 12V adapters. U34 is a current-limiting switch (load switch).
 
+**43. How can I obtain a female cable to connect the 2x20(40-pin) header on the DEBIX Infinity to another board?**   
+> DEBIX Infinity 40pin header: 2*20Pin/2.0mm pitch.  
+
+You can select and purchase suitable cables according to the connector specifications. (2.0mm pitch Dupont wire) 
+
+**44. Are the three 4G modules mentioned in the user manual the only ones compatible with the DEBIX 4G board? Is the Quectel EC25EFA-512-SKT module compatible since it has the same form factor? Because it is the same form factor.**    
+The three models listed in the manual are the 4G modules that have been tested and confirmed to be supported by the 4G expansion board. The Quectel EC25EFA-512-SKT module should in theory be compatible, as it shares the same form factor and interface specifications.
+
+**45. The GPIO voltage of the DEBIX board is 3.3 V. Will using a 5 V CAN protocol damage the circuit? How can it be implemented?**   
+No, it will not cause damage.    
+The CAN interface on the DEBIX board includes only the CAN controller, and an external CAN transceiver is required to interface with a 5 V CAN bus. You can use the official [DEBIX Model A I/O Board](https://debix.io/product/debix-i-o-board/), which integrates a TJA1040 CAN transceiver, and simply connect to the CAN_H and CAN_L pins on the I/O board.   
+Alternatively, you may use any compatible external CAN transceiver module.
+<p align="center">
+<img width=46.3% height=auto src="file/Q45_1.png" alt="Q45_1"> 
+<img width=50% height=auto src="file/Q45_2.png" alt="Q45_2">
+</p>
+
+
+
+
+
+
 
 
 

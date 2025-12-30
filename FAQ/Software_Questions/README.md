@@ -528,6 +528,93 @@ UART is Pin9 and Pin11 of the 40Pin interface.
 <img width=auto height=auto src="file/Q89.png" alt="Q89">
 </p>
 
+**90. Is it possible for the OTG USB-C port on Debix Model B to support Ethernet?**   
+Yes. The Debix Model B can access the network through a USB-to-Ethernet adapter connected to the OTG USB-C port, and most adapters work without requiring additional drivers.
+<p align=left>
+<img width=auto height=auto src="file/Q90.png" alt="Q90">
+</p>
+
+**91. How to configure and use PWM4_out on the GPIO of DEBIX Model A?**   
+The method for configuring PWM4_out is as follows:
+```
+--- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+@@ -151,7 +151,7 @@
+ #endif
+        lvds_backlight: lvds_backlight {
+                compatible = "pwm-backlight";
+-               pwms = <&pwm1 0 100000>;
++               pwms = <&pwm4 0 100000>;
+                status = "okay";
+
+                brightness-levels = < 0  1  2  3  4  5  6  7  8  9
+@@ -221,6 +221,12 @@
+        pinctrl-0 = <&pinctrl_pwm1>;
+        status = "okay";
+ };
++&pwm4 {
++       pinctrl-names = "default";
++       pinctrl-0 = <&pinctrl_pwm4>;
++       status = "okay";
++};
++
+
+ &pwm2 {
+        pinctrl-names = "default";
+@@ -685,7 +691,7 @@
+        clock-frequency = <400000>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_i2c6>;
+-       status = "okay";
++       status = "disabled";
+ };
+
+ &irqsteer_hdmi {
+@@ -1039,6 +1045,11 @@
+                        MX8MP_IOMUXC_GPIO1_IO01__PWM1_OUT       0x116
+                >;
+        };
++       pinctrl_pwm4: pwm1grp {
++               fsl,pins = <
++                       MX8MP_IOMUXC_SAI5_RXFS__PWM4_OUT       0x116
++               >;
++       };
+
+        pinctrl_pwm2: pwm2grp {
+                fsl,pins = <
+@@ -1181,8 +1192,8 @@
+
+        pinctrl_i2c6: i2c6grp {
+                fsl,pins = <
+-                       MX8MP_IOMUXC_SAI5_RXFS__I2C6_SCL                0x400001c3
+-                       MX8MP_IOMUXC_SAI5_RXC__I2C6_SDA         0x400001c3
++                       //MX8MP_IOMUXC_SAI5_RXFS__I2C6_SCL              0x400001c3
++                       //MX8MP_IOMUXC_SAI5_RXC__I2C6_SDA               0x400001c3
+                >;
+        };
+```
+
+**92.How can I turn the system debug UART (Pin9&Pin11 of the 40pin interface) to simple UART?**   
+Please refer to this blog: 
+https://debix.io/blog/change-debug-uart-to-normal-uart-on-debix-model-c/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
