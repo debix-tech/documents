@@ -165,15 +165,47 @@ Alternatively, you may use any compatible external CAN transceiver module.
 <img width=50% height=auto src="file/Q45_2.png" alt="Q45_2">
 </p>
 
+**46. How to connect four USB cameras to BPC-iMX8MP-05**    
+You can enable four cameras to operate simultaneously with the following configuration:  
+1. Connect the camera with the highest bandwidth requirement (such as a 4K camera) to a dedicated OTG interface (e.g., Bus 01) to avoid bandwidth contention. 
+2. Connect the remaining three cameras (such as 2K or 1080p cameras) to the same bus (e.g., Bus 03) and set their input format to MJPEG.
+3. Use the following commands to repeatedly test and adjust the camera parameters to achieve the best display performance with all four cameras:  
+*(You can also adjust the frame rate using the `-framerate` option.)*
+```
+sudo apt install ffmpeg
+ffplay -f v4l2 -input_format mjpeg -video_size 1920x1080 -i /dev/video?
+```
 
+**47. After connecting the device to the ETH-2 Ethernet port, the device suddenly powers off. Only the red LED remains on, and the system cannot boot normally. What could be the possible cause?**     
+This issue is usually related to Power over Ethernet (PoE) or the use of a non-standard Ethernet cable.   
+Please follow the steps below to troubleshoot:  
+1. Check the Ethernet cable type:
+Ensure that a standard Ethernet cable (e.g., a straight-through cable) is used. Avoid homemade cables or cables with non-standard pin assignments.
+2. Verify the peer device:
+Check whether the other end of the Ethernet cable is connected to a regular switch or a PoE-enabled switch. If it is connected to a PoE switch, the PoE voltage may be injected through the Ethernet cable, which can cause a short circuit or trigger protective power shutdown of the device.
 
+> Recommendation:
+> Before connecting the Ethernet port, always confirm that the peer device is a non-PoE switch and that a standard Ethernet cable is used to prevent similar issues.
 
+**48. Why is the electret microphone not recognized on DEBIX Model A? Do I need to use an amplifier?**    
+No, an amplifier is not required. The onboard 3.5mm audio jack on DEBIX Model A/B is designed as a headset (headphone + microphone) port. For microphone functionality, it only supports 4-pole (TRRS) headset plugs. The board natively supports electret microphones.
+the typical microphone pinout used for PC audio differs from the 4-pole headset standard. To use your electret mic, you must connect it according to the DEBIX pinout as follows:
+- **Tip:** Left Audio Channel
+- **Ring 1:** Right Audio Channel
+- **Ring 2:** Ground (GND) — Connect the microphone's ground wire here.
+- **Sleeve:** Microphone (MIC) — Connect the microphone's signal wire here.
+<p align="left">
+<img width=100% height=auto src="file/Q48.png" alt="Q48"> 
+</p>
 
-
-
-
-
-
+**49. What is the simplest way to use two 1920x1080 HDMI displays with DEBIX Model A?**   
+The DEBIX Model A has only one HDMI port, so achieving a dual 1920x1080 HDMI setup requires external hardware. The simplest method depends on your specific needs:  
+1. For Two Mirrored Displays (Same Content):
+Solution: This is the simplest method for identical output. Purchase an `external HDMI Splitter` (1-in, 2-out). Connect the board's single HDMI output to the splitter, and then connect both monitors to the splitter's outputs.
+2. For Two Independent Displays (Extended Desktop):
+Solution: Connect one display directly to the board's HDMI port. For the second display, you need to purchase an additional screen with a different interface supported by the board's expansion connectors, such as `LVDS or MIPI`, and connect it normally.
+>Recommended for Dedicated Projects:
+If your project permanently requires dual HDMI outputs, the most integrated and reliable solution is to order a custom board designed with two native HDMI output interfaces.
 
 
 

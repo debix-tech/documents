@@ -598,12 +598,29 @@ The method for configuring PWM4_out is as follows:
 Please refer to this blog: 
 https://debix.io/blog/change-debug-uart-to-normal-uart-on-debix-model-c/
 
+**93. How to use the PWM pins on the DEBIX Model B?**   
+You can refer to the official document ["GPIO Pin Multiplexing Function List V1.2.xlsx"](https://debix.io/wp-content/uploads/2025/09/debix-model-b-gpio-pin-multiplexing-function-list-v1.2.xlsx.xlsx), which specifies which pin among the 40-pin header can be used as PWM output.  
+Steps to configure PWM output:  
+1. After switching the device tree (dts) file to LVDS output, Pin 36 will be set as the default PWM output.  
+	Use the command: `debix_add_on_board`.
+2. Adjust the duty cycle by modifying the file:
+/sys/class/backlight/lvds_backlight/brightness.
 
+**94. Do you have the configutation or dtb files required for programming and booting the Cortex-M7 core on the DEBIX (iMX8MP)?**      
+You can find all necessary guidance and create the required configutation by following our document and the official NXP application note.  
+DEBIX Guide: (Please refer to Part 4)   
+https://github.com/debix-tech/documents/tree/b8e8493e83cd8d660c3dabac4a7d335066aa1d19/Examples/Debix_M7_A35_Core_Share    
+NXP Official Documentation:   
+https://docs.nxp.com/bundle/AN5317/page/topics/introduction.html
 
+**95. What should I do if flashing Windows IoT to the Infinity board via USB fails**   
+If the flashing process is unsuccessful (e.g., the board fails to boot or encounters errors as shown in the reference diagram below), a common cause is an unsuitable USB cable. Please try replacing your current USB-A cable with a shorter USB-A cable or a high-quality shielded USB-A cable.
 
+>A shorter or properly shielded cable provides more stable power delivery and data transmission, which is often critical for reliable device flashing.
 
-
-
+<p align=left>
+<img width=auto height=auto src="file/Q95.png" alt="Q95">
+</p>
 
 
 
