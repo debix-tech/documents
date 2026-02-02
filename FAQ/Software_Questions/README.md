@@ -622,9 +622,25 @@ If the flashing process is unsuccessful (e.g., the board fails to boot or encoun
 <img width=auto height=auto src="file/Q95.png" alt="Q95">
 </p>
 
+**96. Which board-level device tree (DTS) file is used to modify the functions of specific GPIO pins on Model A?**   
+The following DTS file is used:
+`arch/arm64/boot/dts/freescale/imx8mp-evk.dts`
 
-
-
+**97. On DEBIX Model A running Ubuntu 20.04 with both HDMI and an LVDS display (a non-DEBIX-certified LVDS panel), using the X server (X11) with the fbdev driver, the same image is shown on both displays. How can this be modified?**     
+Edit `xorg.conf` as follows:
+```
+Section "Device"
+ Identifier "etnaviv"
+ Driver "modesetting"
+ Option "kmsdev" "/dev/dri/card1"
+ Option "AccelMethod" "glamor"
+ Option "Atomic" "On" 
+EndSection
+ 
+Section "ServerFlags"
+ Option "AutoAddGPU" "false"
+ Option "DRI" "3" EndSection
+```
 
 
 

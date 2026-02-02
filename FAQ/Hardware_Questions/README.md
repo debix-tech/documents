@@ -207,14 +207,20 @@ Solution: Connect one display directly to the board's HDMI port. For the second
 >Recommended for Dedicated Projects:
 If your project permanently requires dual HDMI outputs, the most integrated and reliable solution is to order a custom board designed with two native HDMI output interfaces.
 
+**50. DEBIX Infinity is connected to a TD101A screen, and after switching the device tree, the screen display is abnormal. What should I do?**   
+1. Check the cables for physical damage.
+2. Refer to the wiring diagram in [the user guide](https://github.com/debix-tech/debix-infinity/tree/master/Reference_Manuals) *(Section 4.9: Usage of Display Screen)* to verify all connections are correct.
+
+**51. How can I use RTC on the DEBIX Model A?**      
+You can purchase an expansion board for DEBIX Model A, [the DEBIX I/O board](https://debix.io/product/debix-i-o-board/), which has an RTC port. 
 
 
+**52. Regarding the DEBIX Infinity: How can it be ensured that the device "does not generate voltage transients at its input or output terminals"? Are there any protection circuits?**  
+1. External standard interfaces are equipped with additional ESD protection devices: USB, RJ45, and headphone jacks.  
+2. Internal interfaces do not have additional ESD protection devices and rely solely on the built-in ESD characteristics of the CPU chip for protection.
 
-
-
-
-
-
+**53. Does the USB Type-C connector on the Infinity include data lines and transient circuit protection?**    
+The Type-C port on the Infinity is designed for power supply only and does not support data lines. For transient protection, the power line is safeguarded by a circuit incorporating a PTC (Positive Temperature Coefficient) device and a TVS (Transient Voltage Suppression) diode.
 
 
 
