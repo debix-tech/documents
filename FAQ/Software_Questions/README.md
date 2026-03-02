@@ -653,7 +653,7 @@ Yes, DEBIX Model C requires the DIP switch to be set to Nor Flash Boot(100) and 
 <img width=auto height=auto src="file/Q99_2.png" alt="Q99_2">
 </p>
 
-**100. How to use other pins on the 40Pin GPIO of Model A/B as GPIO**  
+**100. How to use other pins on the 40Pin GPIO of Model A/B as GPIO?**  
 Please check the file [ecspi](./file/Q100_ecspi), follow this method to switch ecspi 1 and 2 to GPIO. The document includes testing methods. You can also refer to the official documentation: https://debix.io/Software/blog_info/id/60.html
 
 **101. After compiling custom image, how to create an SD card image?**   
@@ -662,10 +662,10 @@ In addition, if you need to create firmware for burning eMMC from SD card, pleas
 
 **102. On DEBIX Model C, my DEBIX TD101A screen only displays two-thirds of the image, and the 500A camera cannot be detected. I guess it didn’t load the correct Device Tree. Where did I do wrong?**   
 After the device boots up, please use the system built-in command to switch to the corresponding device tree: `DebixLvds_TD101A 2` 
-> Note: Replace the number `2` with a different number if you need to select another device tree option. Please refer to the following figure for device tree options.    
-<p align=left>
-<img width=auto height=auto src="file/Q102.png" alt="Q102">
-</p>
+> Note: Replace the number `2` with a different number if you need to select another device tree option. Please refer to the following figure for device tree options.
+> <p align=left>
+> <img width=auto height=auto src="file/Q102.png" alt="Q102">
+> </p>
 
 
 
