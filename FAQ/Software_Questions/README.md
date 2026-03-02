@@ -642,6 +642,39 @@ Section "ServerFlags"
  Option "DRI" "3" EndSection
 ```
 
+**98. Do you have a simple capture example (V4L2 or GStreamer), or a Linux demo showing CSI camera working?**    
+The following video demonstrates the CSI camera in operation:
+ https://youtu.be/qD7l9f4qPDI?si=R378lbrsMnFPwQHI 
+
+**99. I have issues to boot from SD card and eMMC on the Debix Model C. I found that I have to use the Nor Flash boot (100), and if I selected eMMC booting (010) or SD booting (011) with the DIP switch nothing happen (LED red/blue on but green stays off).**   
+Yes, DEBIX Model C requires the DIP switch to be set to Nor Flash Boot(100) and then select the boot mode (SD card boot or eMMC boot) via the serial port. You can refer to the DEBIX Model C User Manual for detailed operating instructions: https://debix.io/product/debix-model-c/ 
+<p align=left>
+<img width=auto height=auto src="file/Q99_1.png" alt="Q99_1">
+<img width=auto height=auto src="file/Q99_2.png" alt="Q99_2">
+</p>
+
+**100. How to use other pins on the 40Pin GPIO of Model A/B as GPIO**  
+Please check the file [ecspi](./file/Q100_ecspi), follow this method to switch ecspi 1 and 2 to GPIO. The document includes testing methods. You can also refer to the official documentation: https://debix.io/Software/blog_info/id/60.html
+
+**101. After compiling custom image, how to create an SD card image?**   
+If you are using BSP to compile the entire system, the resuilting `.wic` file is the firmware for SD card booting.  
+In addition, if you need to create firmware for burning eMMC from SD card, please refer to this SOP: https://debix.io/Software/blog_info/id/59.html. 
+
+**102. On DEBIX Model C, my DEBIX TD101A screen only displays two-thirds of the image, and the 500A camera cannot be detected. I guess it didn’t load the correct Device Tree. Where did I do wrong?**   
+After the device boots up, please use the system built-in command to switch to the corresponding device tree: `DebixLvds_TD101A 2` 
+> Note: Replace the number `2` with a different number if you need to select another device tree option. Please refer to the following figure for device tree options.    
+<p align=left>
+<img width=auto height=auto src="file/Q102.png" alt="Q102">
+</p>
+
+
+
+
+
+
+
+
+
 
 
 

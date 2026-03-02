@@ -222,6 +222,33 @@ You can purchase an expansion board for DEBIX Model A, [the DEBIX I/O board](htt
 **53. Does the USB Type-C connector on the Infinity include data lines and transient circuit protection?**    
 The Type-C port on the Infinity is designed for power supply only and does not support data lines. For transient protection, the power line is safeguarded by a circuit incorporating a PTC (Positive Temperature Coefficient) device and a TVS (Transient Voltage Suppression) diode.
 
+**54. How do I use the dry contact outputs on the BPC-iMX8MP-05?**        
+For the isolated dry contact output circuit configuration:
+1. The schematic for the isolated DOUT is as follows:
+<p align="left">
+<img width=100% height=auto src="file/Q54_1.png" alt="Q54_1"> 
+</p>
+
+2. To configure the DOUT as a dry contact, an external relay control coil is required. It can be designed as follows: 
+<p align="left">
+<img width=100% height=auto src="file/Q54_2.png" alt="Q54_2"> 
+</p>
+
+Option 1: Change BB_VDD3P3V in the left diagram to be powered by DO_PCOM, and use DOUT to drive KV_COIL_EN.  
+
+Option 2: Connect DO_PCOM directly to Pin 1 of the relay. The DOUT output (DO_1) is connected to Pin 8 of the relay through a series resistor. The value of the series resistor (0 Ω or another value) depends on the relay’s specifications.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
