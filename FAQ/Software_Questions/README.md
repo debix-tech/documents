@@ -667,6 +667,39 @@ After the device boots up, please use the system built-in command to switch to t
 > <img width=auto height=auto src="file/Q102.png" alt="Q102">
 > </p>
 
+**103. Can I use RKDevTool instead of FactoryTool to flash images on the DEBIX R3576-01?**     
+Yes, you can use RKDevTool as an alternative to FactoryTool for flashing images.
+
+**104. Does the DEBIX R3576-01 Linux distribution come with kernel headers preinstalled?**   
+No, kernel headers are not included by default. If you need to compile kernel modules, you must manually install the linux-headers package matching your kernel version (e.g., Linux 6.1.84). For detailed installation and verification steps, please refer to this document: [Installing Linux Headers on DEBIX R3576-01](./file/Q104_Installing_Linux_Headers_on_DEBIX_R3576-01.pdf).
+
+**105. After flashing the Windows IoT image to the eMMC and booting it on the Infinity, many drivers are missing in Device Manager. What should I do?**     
+Download the [Win10 IOT Drivers.zip file]( ./file/Q105_Win10_IOT_Drivers.zip), install the drivers. After installation, it is recommended to restart your board to ensure all drivers are properly loaded.
+
+**106. How can I use UART/GPIO on the Infinity board with Windows IoT?**     
+Windows 10 IoT Core provides support for hardware interfaces (such as `GPIO`, `SPI`, `UART`, `I2C`, etc.) through UWP (Universal Windows Platform) APIs. Therefore, you need to develop a UWP application to access these peripherals. For security reasons, Microsoft does not allow apps to be run like traditional applications by double-clicking an `.exe`; they need to be packaged as `MSIX/APPX`, then installed and run on Windows 10 IoT Core.
+
+**107. Do DEBIX Model A, C, S and Infinity support quick wake-up/suspend? How to configure?**     
+Yes, DEBIX supports suspend/wake-up via button control. You can achieve suspend and wake-up by pulling the J2 pin-10 (ON/OFF pin) low (suspend) and high (wake-up).
+
+<p align=left>
+<img width=auto height=auto src="file/Q107_1.png" alt="Q107_1">
+</p>
+
+Additionally, we provide a power consumption test data document for DEBIX Model A for your reference: [Debix_Model_A_Power_Consumption_Data_Sheet](./file/Q107_Debix_Model_A_Power_Consumption_Data_Sheet.pdf).
+
+**108. Where can I find guidelines for real-time operations using the Cortex® cores on the DEBIX Infinity, and what APIs are available for GPIO control?**     
+(1) [A53 and M7 Parallel Approach](./file/Q108_A53_and_M7_Parallel_Approach_on_DEBIX.pdf): For reference on parallel processing methods using the A-core and M-core, customers can consult this document;      
+(2) [NXP Real-Time Edge Software](https://www.nxp.com.cn/design/design-center/software/development-software/real-time-edge-software:REALTIME-EDGE-SOFTWARE): This is the official NXP real-time operating system software. The i.MX 8M Plus processor used on the Infinity is supported. 
+>*Please note that we have not yet adapted this operating system for our boards.*
+   
+(3) [GPIO Control Documentation](https://debix.io/Software/blog_info/id/60.html): For GPIO APIs and control methods, please refer to our official GPIO Control documentation.  
+
+
+
+
+
+
 
 
 

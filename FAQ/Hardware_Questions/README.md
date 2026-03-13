@@ -238,11 +238,27 @@ Option 1: Change BB_VDD3P3V in the left diagram to be powered by DO_PCOM, and us
 
 Option 2: Connect DO_PCOM directly to Pin 1 of the relay. The DOUT output (DO_1) is connected to Pin 8 of the relay through a series resistor. The value of the series resistor (0 Ω or another value) depends on the relay’s specifications.
 
+**55. How to debug different CPU cores (Cortex®-A53 and Cortex®-M7) on the DEBIX Infinity?**   
+The DEBIX Infinity offers flexible debugging options for different cores:  
+(1) Debugging Cortex®-A53 Core: When debugging U-Boot, kernel parameters, or other CPU-related settings, you can use the UART2 interface to debug the Cortex®-A53 core.   
+(2) Debugging Cortex®-M7 Core: For debugging the internal Cortex®-M7 core, two methods are available:
+- Direct debugging via the UART4 interface
+- Debugging through the Cortex®-A53 core   
+>Users can choose the appropriate debugging method based on their specific development requirements.
 
+**56. Does the debix-bpc-imx93-02 have a built-in battery to power the RTC of the IMX93?**     
+Yes, this product comes with a battery inside for RTC power. Generally, products with an RTC battery holder are shipped with a battery included.
 
+**57. What are the four holes around the CPU on the DEBIX Infinity used for? Can they be used to mount a screw-on heatsink?**     
+The four holes are not intended for mounting a heatsink. They are designed specifically for attaching [DEBIX 4G expansion board](https://debix.io/product/debix-4g-board/) or [DEBIX PoE expansion board](https://debix.io/product/debix-sbc-poe-module/).
 
+<p align="left">
+<img width=100% height=auto src="file/Q56.png" alt="Q56"> 
+</p>
 
-
+For CPU cooling, the following options are available:   
+(1) Use [the DEBIX standard enclosure](https://debix.io/product/debix-fanless-aluminum-enclosure/).  
+(2) Use the DEBIX adhesive heat sink: adhesive silicone (to be prepared by the user) + aluminum heat sink (available for purchase from us by emailing sales@debix.io).
 
 
 
