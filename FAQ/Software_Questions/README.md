@@ -695,17 +695,35 @@ Additionally, we provide a power consumption test data document for DEBIX Model 
    
 (3) [GPIO Control Documentation](https://debix.io/Software/blog_info/id/60.html): For GPIO APIs and control methods, please refer to our official GPIO Control documentation.  
 
+**109. How can I use peripherals without the command line? I want to run a BLDC motor using PWM pins, with a driver that uses PWM and digital outputs for direction control. I would like to use the Rust language with Linux HAL.**      
+Using Rust to control PWM devices via Linux HAL is feasible, but the current Rust ecosystem's support for Linux hardware abstractions (especially for PWM and GPIO) is not yet very mature. For your specific needs, DEBIX offers the following practical solutions:
 
+1. GPIO direction control: We recommend using libgpiod for GPIO control, which provides a more modern interface than the legacy sysfs method. For details, please refer to the document [DEBIX Model A GPIO Operation Guide](https://debix.io/blog/debix-model-a-gpio-instruction-manual/).  
+2. PWM output: The DEBIX Model A 40-pin header includes PWM-capable pins. After switching the device tree (DTS) file to LVDS output, PIN36 will default to PWM output. You can adjust the duty cycle (i.e., motor speed) by modifying the following file:
+`/sys/class/backlight/lvds_backlight/brightness`  
+3. Rust language support: We provide the low-level control methods described above (via `sysfs` file interface or the `libgpiod` C library) for you to wrap and call from Rust. In theory, using Rust for this purpose is entirely feasible.
 
+**110. My DEBIX Model A fails to boot. After inserting the SD card, the red LED stays solid on, and the monitor remains black with no signal. How can I troubleshoot this?**      
+Please follow these steps to troubleshoot the issue:
+1. Check the partition layout of the Micro SD card.  
+Use a card reader to connect the SD card to a PC, and inspect the partition table with a disk tool such as DiskGenius. Under normal conditions, the SD card should contain two partitions: one boot partition and one file system partition (e.g., ext4).
+<p align=left>
+<img width=auto height=auto src="file/Q110_1.png" alt="Q110_1">
+</p>  
 
+2. Capture the boot log (if the partition layout is correct but the board still won't boot)   
+If the partitions are fine, please provide the full system boot log. Refer to the document [DEBIX Log Capture SOP](file/Q110_2_DEBIX_Log_Capture_SOP.pdf) for detailed instructions on how to capture the log.
 
+**111. How to use the SPI interface on the DEBIX Model C?**   
+Before using the SPI interface, you need to modify the kernel device tree to configure the corresponding pins for SPI function (please refer to the DEBIX Model C GPIO pin multiplexing table).
+<p align=left>
+<img width=auto height=auto src="file/Q111_1.png" alt="Q111_1">
+</p>   
 
-
-
-
-
-
-
+We provide a pre-configured device tree file. Simply replace `/boot/imx93-11x11-evk.dtb` with the provided file [`imx93-debix-lpspi8.dtb`](file/Q111_3_imx93-debix-lpspi8/imx93-debix-lpspi8.dtb) and reboot. The SPI interface will then be ready for use.
+<p align=left>
+<img width=auto height=auto src="file/Q111_2.png" alt="Q111_2">
+</p>  
 
 
 

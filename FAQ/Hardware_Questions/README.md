@@ -260,7 +260,12 @@ For CPU cooling, the following options are available:
 (1) Use [the DEBIX standard enclosure](https://debix.io/product/debix-fanless-aluminum-enclosure/).  
 (2) Use the DEBIX adhesive heat sink: adhesive silicone (to be prepared by the user) + aluminum heat sink (available for purchase from us by emailing sales@debix.io).
 
-
+**58. Can I install the DEBIX I/O Board onto the DEBIX Model B, and then install the DEBIX 4G Board onto the I/O Board?**    
+No, this configuration will not work for the following reasons:
+1. Physical Incompatibility:   
+   The spacing of the 2x20-pin headers on the DEBIX Model B is different from the spacing of the 2x20-pin headers on the DEBIX I/O Board, preventing a proper physical connection for this specific stacking setup.    
+2. Electrical Incompatibility:   
+   The pin definitions of the headers on the DEBIX Model B and the DEBIX I/O Board are different. Connecting them directly as described would likely lead to incorrect electrical connections and could damage the equipment.
 
 
 
